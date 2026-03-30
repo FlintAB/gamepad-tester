@@ -1,0 +1,6 @@
+.move-stick {
+   --x: 0px;
+   --y: 0px;
+
+   transform: translate(var(--x), var(--y));
+}
