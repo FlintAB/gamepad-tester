@@ -1,4 +1,5 @@
 import { useGamepad } from "../../hooks/useGamePad";
+import { useDriftDetect } from "../../hooks/useDriftDetected";
 import GPGroupLeftButtons from "../../components/GroupButtons/GPGroupLeftButtons";
 import GPGroupRightButtons from "../../components/GroupButtons/GPGroupRightButtons";
 import GPLeftTriggers from "../../components/GPGroupTriggers/GPLeftTriggers";
@@ -7,9 +8,8 @@ import GPLogoButton from "../../components/GPOptionButtons/GPLogoButton";
 import GPShareMenuButtons from "../../components/GPOptionButtons/GPShareMenuButtons"
 import GPLeftStick from "../../components/GPSticks/GPLeftStick";
 import GPRightStick from "../../components/GPSticks/GPRightStick";
-import styles from './MainPage.module.css';
 import GPTouchPad from "../../components/GPTouchPad/GPTouchPad";
-import { useDriftDetect } from "../../hooks/useDriftDetected";
+import styles from './MainPage.module.css';
 
 const MainPage = () => {
 const { gamepad } = useGamepad()

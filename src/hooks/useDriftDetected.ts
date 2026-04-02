@@ -10,9 +10,7 @@ export const useDriftDetect = (gamepad: Gamepad | null): {isDrifting: boolean, d
       return { isDrifting: false, driftingAxes: [] };
    }
 
-   const axes = gamepad?.axes
-
-   const [leftX, leftY, rightX, rightY] = axes ?? []
+   const [leftX, leftY, rightX, rightY] = gamepad?.axes ?? []
 
    const DRIFT_THRESHOLD = 0.1
 
