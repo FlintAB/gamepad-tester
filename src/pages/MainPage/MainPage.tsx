@@ -9,11 +9,13 @@ import GPLeftStick from "../../components/GPSticks/GPLeftStick";
 import GPRightStick from "../../components/GPSticks/GPRightStick";
 import styles from './MainPage.module.css';
 import GPTouchPad from "../../components/GPTouchPad/GPTouchPad";
+import { useDriftDetect } from "../../hooks/useDriftDetected";
 
 const MainPage = () => {
 const { gamepad } = useGamepad()
+const { isDrifting, driftingAxes } = useDriftDetect(gamepad)
 
-   return (
+return (
 <div className={styles.body}>
 
 
@@ -53,7 +55,11 @@ const { gamepad } = useGamepad()
       <GPLogoButton gamepad={gamepad} />
       <GPRightStick gamepad={gamepad} posX={gamepad?.axes[2]} posY={gamepad?.axes[3]}/>
    </div>
-
+   {isDrifting ? 
+      (<p className={`${styles.drift} ${styles.warning}`}>Drift: {driftingAxes.join(',')}</p>)  
+      :
+      (<p className={`${styles.drift} ${styles.none}`}>No Drift</p>)
+   }
 
 </div>
    )

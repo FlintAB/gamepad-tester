@@ -50,3 +50,15 @@
    gap: 80px;
    margin-left: -30px;
 }
+
+.drift {
+   margin-top: 80px;
+
+   &.none {
+      color: green;
+   }
+
+   &.warning {
+      color: red;
+   }
+}

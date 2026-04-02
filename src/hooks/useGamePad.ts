@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
  * 
  * @Возвращает объект gamepad
  */
-export function useGamepad() {
+export function useGamepad(): {gamepad: Gamepad | null} {
    const [gamepad, setGamepad] = useState<Gamepad | null>(null);
 
    useEffect(() => {
