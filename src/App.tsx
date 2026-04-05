@@ -1,8 +1,11 @@
+import ModalDriftTest from "./components/ModalDriftTest/ModalDriftTest";
 import { useGamepad } from "./hooks/useGamePad"
+import useModal from "./hooks/useModal";
 import MainPage from "./pages/MainPage/MainPage";
 
 function App() {
   const { gamepad } = useGamepad()
+  const [isShowing, toggleIsShowing] = useModal();
   const isConnected = gamepad?.connected
 
   return (
@@ -10,7 +13,9 @@ function App() {
       <h2>{isConnected ? 'Ready for Test' : 'Connect your controller with USB or BlueTooth (USB only Linux) and press any key to start'}</h2>
       <p>ID: {gamepad?.id}</p>
 
-      {isConnected && <MainPage />}
+      {isConnected && <MainPage gamepad={gamepad} />}
+
+      <ModalDriftTest show={isShowing} toggleShowing={toggleIsShowing} gamepad={gamepad} />
 
       <div>
         <p>LEFT STICK:</p>
